@@ -1,6 +1,6 @@
 # Spectacle
 
-[![Build Status](https://travis-ci.org/eczarny/spectacle.svg?branch=master)](https://travis-ci.org/eczarny/spectacle)
+[![Build Status](https://travis-ci.org/eczarny/spectacle.svg?branch=eczarny/specs)](https://travis-ci.org/eczarny/spectacle)
 
 Easily organize windows without using a mouse.
 
