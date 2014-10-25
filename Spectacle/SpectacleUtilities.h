@@ -10,7 +10,7 @@
 
 #pragma mark -
 
-#define RectCentredWithinRect(a, b) CGRectContainsRect(a, b) && fabs(CGRectGetMidX(b) - CGRectGetMidX(a)) <= 1.0f && fabs(CGRectGetMidY(b) - CGRectGetMidY(a)) <= 1.0f
+#define RectCentredWithinRect(a, b) fabs(CGRectGetMidX(b) - CGRectGetMidX(a)) <= 2.0f && fabs(CGRectGetMidY(b) - CGRectGetMidY(a)) <= 2.0f
 
 #pragma mark -
 

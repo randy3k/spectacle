@@ -17,6 +17,7 @@
     if ((action >= SpectacleWindowActionRightHalf) && (action <= SpectacleWindowActionLowerRight)) {
         calculatedWindowRect.origin.x = visibleFrameOfScreen.origin.x + floor(visibleFrameOfScreen.size.width / 2.0f);
     } else if (MovingToCenterRegionOfDisplay(action)) {
+        calculatedWindowRect.size.width = visibleFrameOfScreen.size.width / 1.7f;
         calculatedWindowRect.origin.x = floor(visibleFrameOfScreen.size.width / 2.0f) - floor(calculatedWindowRect.size.width / 2.0f) + visibleFrameOfScreen.origin.x;
     } else if (!MovingToThirdOfDisplay(action)) {
         calculatedWindowRect.origin.x = visibleFrameOfScreen.origin.x;
@@ -25,6 +26,7 @@
     if (MovingToTopRegionOfDisplay(action)) {
         calculatedWindowRect.origin.y = visibleFrameOfScreen.origin.y + floor(visibleFrameOfScreen.size.height / 2.0f);
     } else if (MovingToCenterRegionOfDisplay(action)) {
+        calculatedWindowRect.size.height = floor(visibleFrameOfScreen.size.height / 1.5f);
         calculatedWindowRect.origin.y = floor(visibleFrameOfScreen.size.height / 2.0f) - floor(calculatedWindowRect.size.height / 2.0f) + visibleFrameOfScreen.origin.y;
     } else if (!MovingToThirdOfDisplay(action)) {
         calculatedWindowRect.origin.y = visibleFrameOfScreen.origin.y;
@@ -185,10 +187,10 @@
         oneHalfRect.origin.x += oneHalfRect.size.width;
     }
 
-    if (fabs(CGRectGetMidY(windowRect) - CGRectGetMidY(oneHalfRect)) <= 1.0f) {
+    if (fabs(CGRectGetMidY(windowRect) - CGRectGetMidY(oneHalfRect)) <= 2.0f) {
         CGRect oneThirdRect = oneHalfRect;
 
-        oneThirdRect.size.width = floor(visibleFrameOfScreen.size.width / 3.0f);
+        oneThirdRect.size.width = floor(visibleFrameOfScreen.size.width * 0.4f);
 
         if (action == SpectacleWindowActionRightHalf) {
             oneThirdRect.origin.x = visibleFrameOfScreen.origin.x + visibleFrameOfScreen.size.width - oneThirdRect.size.width;
@@ -201,7 +203,7 @@
         if (RectCentredWithinRect(oneThirdRect, windowRect)) {
             CGRect twoThirdsRect = oneHalfRect;
 
-            twoThirdsRect.size.width = floor(visibleFrameOfScreen.size.width * 2 / 3.0f);
+            twoThirdsRect.size.width = floor(visibleFrameOfScreen.size.width * 0.6f);
 
             if (action == SpectacleWindowActionRightHalf) {
                 twoThirdsRect.origin.x = visibleFrameOfScreen.origin.x + visibleFrameOfScreen.size.width - twoThirdsRect.size.width;
